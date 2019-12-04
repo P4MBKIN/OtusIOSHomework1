@@ -9,8 +9,37 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @State private var selection = 0
+    @State private var showLink = false
+
     var body: some View {
-        Text("Hello, World!")
+        TabView(selection: $selection) {
+            StartView(selection: $selection, showLink: $showLink)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "power")
+                        Text("Start")
+                    }
+                }
+                .tag(0)
+            CourseListView(showLink: $showLink)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "desktopcomputer")
+                        Text("Course")
+                    }
+                }
+                .tag(1)
+            AboutView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "bubble.left.and.bubble.right")
+                        Text("About")
+                    }
+                }
+                .tag(2)
+        }
     }
 }
 

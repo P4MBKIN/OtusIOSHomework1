@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,11 @@
 		CE6166DF239534030014B59E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6166DE239534030014B59E /* Assets.xcassets */; };
 		CE6166E2239534030014B59E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6166E1239534030014B59E /* Preview Assets.xcassets */; };
 		CE6166E5239534030014B59E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6166E3239534030014B59E /* LaunchScreen.storyboard */; };
+		CE6166EE2396C7AF0014B59E /* CourseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6166ED2396C7AF0014B59E /* CourseListView.swift */; };
+		CE6166F02397EB700014B59E /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6166EF2397EB700014B59E /* CourseView.swift */; };
+		CE6166F22397F7ED0014B59E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6166F12397F7ED0014B59E /* StartView.swift */; };
+		CE6166F42397FF260014B59E /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6166F32397FF260014B59E /* AboutView.swift */; };
+		CE6166F7239808930014B59E /* BetterSheet in Frameworks */ = {isa = PBXBuildFile; productRef = CE6166F6239808930014B59E /* BetterSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,10 @@
 		CE6166E1239534030014B59E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE6166E4239534030014B59E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE6166E6239534030014B59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE6166ED2396C7AF0014B59E /* CourseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListView.swift; sourceTree = "<group>"; };
+		CE6166EF2397EB700014B59E /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		CE6166F12397F7ED0014B59E /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		CE6166F32397FF260014B59E /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6166F7239808930014B59E /* BetterSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +69,10 @@
 				CE6166D8239534010014B59E /* AppDelegate.swift */,
 				CE6166DA239534010014B59E /* SceneDelegate.swift */,
 				CE6166DC239534010014B59E /* ContentView.swift */,
+				CE6166ED2396C7AF0014B59E /* CourseListView.swift */,
+				CE6166EF2397EB700014B59E /* CourseView.swift */,
+				CE6166F12397F7ED0014B59E /* StartView.swift */,
+				CE6166F32397FF260014B59E /* AboutView.swift */,
 				CE6166DE239534030014B59E /* Assets.xcassets */,
 				CE6166E3239534030014B59E /* LaunchScreen.storyboard */,
 				CE6166E6239534030014B59E /* Info.plist */,
@@ -85,12 +99,16 @@
 				CE6166D1239534010014B59E /* Sources */,
 				CE6166D2239534010014B59E /* Frameworks */,
 				CE6166D3239534010014B59E /* Resources */,
+				CE6166EC23968C650014B59E /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = HomeWork1;
+			packageProductDependencies = (
+				CE6166F6239808930014B59E /* BetterSheet */,
+			);
 			productName = HomeWork1;
 			productReference = CE6166D5239534010014B59E /* HomeWork1.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +137,9 @@
 				Base,
 			);
 			mainGroup = CE6166CC239534010014B59E;
+			packageReferences = (
+				CE6166F5239808930014B59E /* XCRemoteSwiftPackageReference "BetterSheet" */,
+			);
 			productRefGroup = CE6166D6239534010014B59E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,14 +162,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CE6166EC23968C650014B59E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"SwiftLint does not exist\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE6166D1239534010014B59E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CE6166D9239534010014B59E /* AppDelegate.swift in Sources */,
+				CE6166F42397FF260014B59E /* AboutView.swift in Sources */,
 				CE6166DB239534010014B59E /* SceneDelegate.swift in Sources */,
+				CE6166F02397EB700014B59E /* CourseView.swift in Sources */,
+				CE6166F22397F7ED0014B59E /* StartView.swift in Sources */,
 				CE6166DD239534010014B59E /* ContentView.swift in Sources */,
+				CE6166EE2396C7AF0014B59E /* CourseListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +385,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE6166F5239808930014B59E /* XCRemoteSwiftPackageReference "BetterSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/egeniq/BetterSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE6166F6239808930014B59E /* BetterSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE6166F5239808930014B59E /* XCRemoteSwiftPackageReference "BetterSheet" */;
+			productName = BetterSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE6166CD239534010014B59E /* Project object */;
 }
